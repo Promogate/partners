@@ -3,7 +3,6 @@ import { api } from "@/config";
 import { OfferWithClicks } from "@/domain/models";
 import { parseCurrency } from "@/main/utils";
 import {
-  FeaturedSlider,
   SingleProductPageContent,
   StoreFooter,
   StoreHeader
@@ -283,29 +282,6 @@ export default function SingleProductPage(data: SingleProductResponse) {
             gap={{ xl: "24px" }}
             padding={{ xl: "1rem 0" }}
           >
-            <Box
-              borderRadius={["lg"]}
-              backgroundColor={"white"}
-              height={"max-content"}
-              maxWidth={["815px"]}
-            >
-              {
-                data.offer.description ? (
-                  null
-                ) : (
-                  <Box
-                    margin={{ xl: "1rem 0" }}
-                  >
-                    <Text
-                      fontSize={{ xl: "0.9rem" }}
-                    >
-                      {data.offer.description}
-                    </Text>
-                  </Box>
-                )
-              }
-              <FeaturedSlider offers={featuredOffers} storeName={data.offer.resources.user_profile.store_name} />
-            </Box>
             <Grid
               gap={["1rem"]}
               margin={["1rem", "1rem", 0]}
