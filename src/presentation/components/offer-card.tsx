@@ -1,6 +1,6 @@
 import { OfferWithClicks } from "@/domain/models";
 import { parseCurrency, truncateString } from "@/main/utils";
-import { Badge, Flex, HStack, Tag, Text } from "@chakra-ui/react";
+import { Badge, HStack, Tag } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
 
@@ -46,14 +46,14 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
           ) : null}
         </HStack>
         <div className="rounded-lg overflow-hidden h-[120px] w-[120px] mx-auto">
-            <img
-              className='object-contain h-full w-full'
-              src={data.image}
-              alt={data.title}
-            />
+          <img
+            className='object-contain h-full w-full'
+            src={data.image}
+            alt={data.title}
+          />
         </div>
-        <div className="my-4 text-center flex flex-col justify-between">
-          <h3 className="flex-1 my-2 text-normal">
+        <div className="my-4 text-center flex flex-col justify-between align-middle flex-1">
+          <h3 className="flex-1 my-2 text-sm">
             {truncateString(data.title)}
           </h3>
           <div>
@@ -64,20 +64,10 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
               {parseCurrency(data.price)}
             </p>
           </div>
-        </div>
-        <Flex
-          width={["100%"]}
-          justifyContent={["flex-end"]}
-          gap={["1rem", "1rem", "1.5rem"]}
-        >
-          <Text
-            as='span'
-            color={"gray.400"}
-            fontSize={["xs"]}
-          >
+          <span className="text-[10px] text-gray-400">
             {data._count.offer_clicks > 1 ? `${data._count.offer_clicks} visualizações` : `${data._count.offer_clicks} visualização`}
-          </Text>
-        </Flex>
+          </span>
+        </div>
       </div>
       <a href={data.destination_link} target="_blank">
         <button className="z-50 bg-purple-600 hover:bg-purple-800 border border-purple-600 hover:border-purple-800 
