@@ -6,12 +6,8 @@ import { TopBar } from "@/presentation/components/Header/TopBar";
 import { getValidSubdomain } from "@/utils/subdomain";
 import { useQuery } from "@tanstack/react-query";
 import { GetServerSideProps } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
 import Head from "next/head";
 import { Fragment, useContext } from "react";
-
-const montserrat = Montserrat({ subsets: ["latin"], preload: true });
-const openSans = Open_Sans({ subsets: ["latin"], preload: true });
 
 type SubdomainPageProps = { subdomain: string, data: FetchStoreOffersResponse; };
 
@@ -41,7 +37,8 @@ export default function SubdomainPage({ subdomain, data: serverData }: Subdomain
     <Fragment>
       <Head key={data.data.id}>
         <title>
-          {data.data.store_name_display} - Promogate
+          {data.data.store_name_display ? `${data.data.store_name_display} - Promogate - Promoções, Cupons de desconto e Ofertas` 
+          : "Promogate - Promoções, Cupons de desconto e Ofertas"}
         </title>
         <meta name="lomadee-verification" content={data.data.lomadee_source_id as string} />
         <meta name="verify-admitad" content={data.data.admitad_verification as string} />

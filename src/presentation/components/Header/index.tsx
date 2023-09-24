@@ -17,7 +17,7 @@ export function Header({ topBar, storeName }: HeaderProps) {
           <h1 className="text-white text-2xl font-bold">
             {storeName ? storeName : "Promogate"}
           </h1>
-          <div className="hidden lg:flex items-center gap-x-8 text-white font-semibold">
+          <div className="hidden items-center gap-x-8 text-white font-semibold">
             <Link href={"/promocoes-recentes"}>
               Promoções recentes
             </Link>

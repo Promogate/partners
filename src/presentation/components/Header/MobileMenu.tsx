@@ -59,7 +59,7 @@ export function MobileMenu() {
                       <AiOutlineClose />
                     </button>
                   </div>
-                  <div className="mt-16">
+                  <div className="mt-16 hidden">
                     <div className="grid items-center text-center gap-y-8 font-semibold">
                       <Link href={"/promocoes-recentes"}>
                         Promoções recentes
