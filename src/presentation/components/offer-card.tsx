@@ -1,6 +1,6 @@
 import { OfferWithClicks } from "@/domain/models";
 import { parseCurrency, truncateString } from "@/main/utils";
-import { Badge, Box, Flex, HStack, Tag, Text } from "@chakra-ui/react";
+import { Badge, Flex, HStack, Tag, Text } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
 
@@ -20,8 +20,8 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
   const offerUrl = `/${store}/produto/${productName}/?oid=${data.id}&utm_click=1&rid=${data.resources_id}`;
 
   return (
-    <a className="flex flex-col bg-white justify-between border border-gray-200 rounded-lg h-[420px]"
-      style={{ fontFamily: inter.style.fontFamily }} href={offerUrl} target="_blank">
+    <div className="flex flex-col bg-white justify-between border border-gray-200 rounded-lg h-[420px]"
+      style={{ fontFamily: inter.style.fontFamily }}>
       <div className="flex-1 flex flex-col p-4">
         <HStack
           spacing={["0.5rem"]}
@@ -45,18 +45,13 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
             </Badge>
           ) : null}
         </HStack>
-        <Box
-          borderRadius={["1rem"]}
-          overflow={["hidden"]}
-          height={["160px"]}
-        >
-
+        <div className="rounded-lg overflow-hidden h-[120px] w-[120px] mx-auto">
           <img
             className='object-contain h-full w-full'
             src={data.image}
             alt={data.title}
           />
-        </Box>
+        </div>
         <div className="my-4 text-center flex flex-col justify-between">
           <h3 className="flex-1 my-2 text-normal">
             {truncateString(data.title)}
@@ -90,6 +85,6 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
           Ver Oferta
         </button>
       </a>
-    </a>
+    </div>
   );
 }
