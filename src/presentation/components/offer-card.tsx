@@ -20,7 +20,7 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
   const offerUrl = `/${store}/produto/${productName}/?oid=${data.id}&utm_click=1&rid=${data.resources_id}`;
 
   return (
-    <a className="flex flex-col bg-white justify-between border border-gray-200 rounded-lg min-h-[420px]"
+    <a className="flex flex-col bg-white justify-between border border-gray-200 rounded-lg h-[420px]"
       style={{ fontFamily: inter.style.fontFamily }} href={offerUrl} target="_blank">
       <div className="flex-1 flex flex-col p-4">
         <HStack
@@ -57,16 +57,18 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
             alt={data.title}
           />
         </Box>
-        <div className="my-4 text-center">
+        <div className="my-4 text-center flex flex-col justify-between">
           <h3 className="flex-1 my-2 text-normal">
             {truncateString(data.title)}
           </h3>
-          <span className="text-red-400 line-through text-xs">
-            {data.old_price && data.old_price !== "0" ? parseCurrency(data.old_price) : null}
-          </span>
-          <p className="text-gray-900 font-black text-xl tracking-wide">
-            {parseCurrency(data.price)}
-          </p>
+          <div>
+            <span className="text-red-400 line-through text-xs">
+              {data.old_price && data.old_price !== "0" ? parseCurrency(data.old_price) : null}
+            </span>
+            <p className="text-gray-900 font-black text-xl tracking-wide">
+              {parseCurrency(data.price)}
+            </p>
+          </div>
         </div>
         <Flex
           width={["100%"]}
