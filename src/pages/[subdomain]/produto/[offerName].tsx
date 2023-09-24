@@ -3,9 +3,7 @@ import { api } from "@/config";
 import { OfferWithClicks } from "@/domain/models";
 import { parseCurrency } from "@/main/utils";
 import {
-  SingleProductPageContent,
-  StoreFooter,
-  StoreHeader
+  SingleProductPageContent
 } from "@/presentation/components";
 import {
   Box,
@@ -117,12 +115,6 @@ export default function SingleProductPage(data: SingleProductResponse) {
         />
       </Head>
       <Box backgroundColor={"blackAlpha.50"}>
-        <StoreHeader props={{
-          store_image: data.offer.resources.user_profile.store_image,
-          store_name: data.offer.resources.user_profile.store_name,
-          store_name_display: data.offer.resources.user_profile.store_name,
-          social_media: data.offer.resources.user_profile.social_media
-        }} />
         <Grid
           maxWidth={["1170px"]}
           margin={["1.5rem auto"]}
@@ -374,7 +366,6 @@ export default function SingleProductPage(data: SingleProductResponse) {
           </Grid>
         </Box>
         <SingleProductPageContent />
-        <StoreFooter />
       </Box >
     </Fragment >
   );

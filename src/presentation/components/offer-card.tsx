@@ -46,11 +46,11 @@ export function OfferCard({ data, storeName }: OfferCardProps) {
           ) : null}
         </HStack>
         <div className="rounded-lg overflow-hidden h-[120px] w-[120px] mx-auto">
-          <img
-            className='object-contain h-full w-full'
-            src={data.image}
-            alt={data.title}
-          />
+            <img
+              className='object-contain h-full w-full'
+              src={data.image}
+              alt={data.title}
+            />
         </div>
         <div className="my-4 text-center flex flex-col justify-between">
           <h3 className="flex-1 my-2 text-normal">
